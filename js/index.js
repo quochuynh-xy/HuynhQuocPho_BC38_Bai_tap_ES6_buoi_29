@@ -84,18 +84,30 @@ function handleSort(type) {
   if (type == "ascending") {
     console.log("A to Z");
     todoTasks.sort((a, b) => {
-        if (a.task[0] > b.task[0]) {return 1} else {return -1};
-        //   if (a.task[0] < b.task[0]) return -1;
+      if (a.task[0] > b.task[0]) {
+        return 1;
+      } else {
+        return -1;
+      }
+      //   if (a.task[0] < b.task[0]) return -1;
     });
-} else {
+  } else {
     console.log("Z to A");
     todoTasks.sort((a, b) => {
-        if (a.task[0] < b.task[0]) {return 1} else {return -1};
-    //   if (a.task[0] > b.task[0]) return -1;
+      if (a.task[0] < b.task[0]) {
+        return 1;
+      } else {
+        return -1;
+      }
+      //   if (a.task[0] > b.task[0]) return -1;
     });
   }
   saveList();
   renderTask();
 }
-document.getElementById('two').addEventListener("click", ()=>{handleSort("ascending")});
-document.getElementById('three').addEventListener("click", ()=>{handleSort("deascending")})
+document.getElementById("two").addEventListener("click", () => {
+  handleSort("ascending");
+});
+document.getElementById("three").addEventListener("click", () => {
+  handleSort("deascending");
+});
