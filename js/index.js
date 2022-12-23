@@ -44,7 +44,7 @@ function renderTask() {
     if (todoTasks[i].isDone) {
       completed += `
             <li>
-                <p>${todoTasks[i].task}</p>
+                <span>${todoTasks[i].task}</span>
                 <div class="buttons">
                     <button onclick="handleDelete('${i}')" class="remove"><i class="fas fa-trash-alt"></i></button>
                     <button class="completed"><i class="far fa-check-circle"></i></button>

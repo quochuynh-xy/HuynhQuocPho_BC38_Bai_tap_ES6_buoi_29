@@ -325,9 +325,9 @@ ul.todo#completed li .buttons .complete .far{
   display: none;
 }
 
-/* ul.todo#completed span{
+ul.todo#completed span{
   color: #25b99a;
-} */
+}
 ul.todo#completed .buttons .completed {
   color: #25b99a;
 }
