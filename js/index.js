@@ -79,3 +79,23 @@ let handleDelete = (index) => {
     saveList();
     renderTask();
 }
+function handleSort(type) {
+    if (type == "ascending") {
+        console.log("ascending");
+        let sorted = todoTasks.sort((a, b) => {
+            if(a.task[0] < b.task[0]) return -1
+        })
+        saveList()
+        renderTask()
+    }
+    if (type == "descending") {
+        console.log("descending");
+        let sorted = todoTasks.sort((a, b) => {
+            if(a.task[0] < b.task[0]) return -1
+        })
+        saveList()
+        renderTask()
+    }
+}
+// document.getElementById('two').addEventListener("click", handleSort("ascending"));
+// document.getElementById('three').onclick = handleSort("descending");
