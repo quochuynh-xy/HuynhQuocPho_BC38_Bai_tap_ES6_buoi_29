@@ -8,12 +8,6 @@ class Todo {
     this.isDone = false;
   }
 }
-class Done extends Todo {
-  constructor(_task) {
-    super(_task);
-    this.isDone = true;
-  }
-}
 /**
  *Thêm mới việc cần làm
  */
@@ -47,7 +41,7 @@ function renderTask() {
                 <span>${todoTasks[i].task}</span>
                 <div class="buttons">
                     <button onclick="handleDelete('${i}')" class="remove"><i class="fas fa-trash-alt"></i></button>
-                    <button class="completed"><i class="far fa-check-circle"></i></button>
+                    <button onclick= "handleTaskDone('${i}')" class="completed"><i class="far fa-check-circle"></i></button>
                 </div>
             </li>`;
     } else {
@@ -56,7 +50,7 @@ function renderTask() {
                 <p>${todoTasks[i].task}</p>
                 <div class="buttons">
                     <button onclick="handleDelete('${i}')" class="remove"><i class="fas fa-trash-alt"></i></button>
-                    <button onclick= "handleTaskDone(event)" class="complete"><i class="far fa-check-circle"></i></button>
+                    <button onclick= "handleTaskDone('${i}')" class="complete"><i class="far fa-check-circle"></i></button>
                 </div>
             </li>`;
     }
@@ -64,16 +58,24 @@ function renderTask() {
   document.getElementById("todo").innerHTML = uncompleted;
   document.getElementById("completed").innerHTML = completed;
 }
-let handleTaskDone = (e) => {
-  let dcm = e.target.parentElement.parentElement.parentElement;
-  let todo = dcm.querySelector("p").innerHTML;
-  todoTasks.find((value, index) => {
-    if (value.task == todo) {
-      todoTasks[index].isDone = true;
-    }
-    saveList();
-    renderTask();
-  });
+let handleTaskDone = (index) => {
+  // let dcm = e.target.parentElement.parentElement.parentElement;
+  // let todo = dcm.querySelector("p").innerHTML;
+  // todoTasks.find((value, index) => {
+  //   if (value.task == todo) {
+  //     todoTasks[index].isDone = true;
+  //   }
+  //   saveList();
+  //   renderTask();
+  // });
+  let status = todoTasks[index].isDone;
+  if(status) {
+    todoTasks[index].isDone = false;
+  } else {
+    todoTasks[index].isDone = true;
+  }
+  saveList();
+  renderTask();
 };
 let handleDelete = (index) => {
   todoTasks.splice(index * 1, 1);
